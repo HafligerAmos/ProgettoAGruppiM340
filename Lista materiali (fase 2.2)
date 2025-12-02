@@ -1,0 +1,53 @@
+FASE 2.2 — Lista materiali da richiedere ai sistemisti junior
+
+Questa lista è pronta per essere consegnata e usata nella fase di preparazione.
+
+✔ Materiali hardware
+
+2 PC fisici per host ESXi (8–16 GB RAM, SSD ≥ 250 GB)
+
+1 PC/NAS per storage condiviso NFS
+
+1 switch di rete aggiuntivo (min. 8 porte)
+
+6–8 cavi Ethernet Cat5e/Cat6
+
+2 monitor
+
+2 tastiere
+
+2 mouse
+
+✔ Materiali software
+
+ISO VMware ESXi 6.7
+
+ISO VMware vCenter Server Appliance 6.5 (VCSA)
+
+ISO Ubuntu Server (per NFS)
+
+Software per scrittura USB:
+
+Rufus / Ventoy / Etcher
+
+✔ Supporti fisici
+
+3 chiavette USB 16 GB:
+
+2 per ESXi
+
+1 per installer vCenter
+
+Eventuali chiavette extra per backup di configurazioni
+
+✔ Documentazione e strumenti
+
+Accesso a Moodle
+
+Modello Release Notes
+
+Esempi precedenti di checklist
+
+MS Visio per schema della rete
+
+Fogli per diario tecnico
