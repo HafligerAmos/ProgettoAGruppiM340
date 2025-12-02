@@ -1,0 +1,166 @@
+FASE 1.1 — Documentazione su VMware ESXi 6.7
+Obiettivo della fase
+
+Raccogliere informazioni necessarie per installare, configurare e utilizzare VMware ESXi 6.7 come hypervisor di tipo 1 su hardware fisico della scuola.
+
+1. Requisiti hardware per ESXi 6.7
+
+Durante la ricerca sono emersi i seguenti requisiti minimi:
+
+CPU
+
+Processore a 64 bit con supporto:
+
+Intel VT-x o AMD-V
+
+NX/XD bit
+
+Set istruzioni x86_64
+→ I PC della scuola (Intel Core i5/i7 di 3ª–6ª gen.) sono compatibili.
+
+RAM
+
+Minimo richiesto da VMware: 4 GB
+
+Consigliato per test e cluster: 8–16 GB
+→ Compatibile con i nostri PC (8–16 GB).
+
+Storage
+
+SSD/HDD minimo: 16 GB
+
+Consigliato: ≥ 100 GB
+→ I PC hanno SSD da 250–500 GB, ottimo.
+
+NIC (scheda di rete)
+
+Deve essere supportata da VMware
+→ La maggior parte delle schede Intel funziona correttamente. A volte possono servire driver aggiuntivi per Realtek.
+
+2. Creazione della chiavetta USB avviabile
+
+Per installare ESXi serve preparare una chiavetta USB bootabile.
+
+Strumenti trovati
+
+Rufus
+
+Ventoy
+
+Etcher
+
+Procedura riassunta
+
+Scaricare ISO ufficiale di ESXi 6.7 dal portale VMware.
+
+Aprire Rufus.
+
+Selezionare:
+
+Device: la chiavetta (8–16 GB)
+
+File System: FAT32
+
+ISO: VMware-ESXi-6.7.x-XXXXXX.iso
+
+Avviare la scrittura.
+
+Inserire la chiavetta nel PC fisico e fare boot da USB.
+
+3. Procedura di installazione ESXi 6.7
+
+Apprese le seguenti informazioni:
+
+Avviare il PC dalla chiavetta USB.
+
+Confermare l’avvio dell’installer.
+
+Accettare la licenza VMware.
+
+Selezionare il disco SSD interno del PC.
+
+Impostare password root (8+ caratteri).
+
+Riavviare al termine.
+
+Configurare:
+
+IP Management
+
+Gateway
+
+DNS
+
+Accedere alla UI via browser:
+
+https://<IP-del-server>/ui
+
+4. Concetti chiave studiati
+vSwitch e Port Group
+
+vSwitch = lo switch virtuale interno di ESXi che gestisce il traffico delle VM e del management.
+
+Port Group = gruppi di porte con configurazioni di rete accessibili alle VM.
+
+Tipi di rete che è possibile configurare
+
+Management Network
+
+VM Network
+
+vMotion
+
+Storage Network (NFS/iSCSI)
+
+5. Storage condiviso supportato
+
+Secondo la documentazione VMware:
+
+Tipi compatibili
+
+NFS (Network File System)
+→ Semplice da configurare, consigliato per la scuola.
+
+iSCSI (Internet Small Computer System Interface)
+→ Più avanzato ma richiede configurazione più complessa.
+
+Fibre Channel
+→ Non utilizzabile nel nostro ambiente.
+
+Scelta consigliata
+
+➡️ NFS, perché facile e supportato da qualsiasi NAS o PC Linux.
+
+6. Fonti consultate
+
+VMware Documentation – ESXi 6.7
+
+VMware Knowledge Base
+
+Canali YouTube:
+
+VMware Tech Channel
+
+ITProGuide
+
+VirtualizationHowTo
+
+Blog tecnici:
+
+Altaro
+
+StarWind
+
+vExpert Blog
+
+7. Considerazioni personali
+
+ESXi è molto più leggero e veloce rispetto agli hypervisor di tipo 2 (VirtualBox, VMware Workstation).
+
+La creazione del vSwitch è intuitiva, ma serve capire bene la differenza tra port group e vmkernel.
+
+Preparare lo storage NFS sembra la soluzione migliore perché è pratico e veloce.
+
+La fase più critica potrebbe essere la compatibilità dei driver della scheda di rete.
+
+La documentazione VMware è molto completa ma anche complessa: serve pratica.
